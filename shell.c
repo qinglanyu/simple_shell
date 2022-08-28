@@ -1,4 +1,28 @@
 #include <stdio.h>
+#include <ctype.h>
+
+char *skip_spaces(const char *str)
+{
+	while (isspace(*str)){
+		++str;
+	}
+	return (char*) str;
+}
+
+char *strim(char *s)
+{
+	size_t size;
+	char *end;
+
+	size = strlen(s);
+	if (!size)
+		return s;
+
+	end = s + size - 1;
+	while (end >= s && isspace(*end)){
+		...
+	}
+}
 
 void shell_parse_cmd(const char *cmd)
 {
@@ -13,7 +37,7 @@ int main(int argc, char *argv[])
 {
     char cmd[64] = {0};
 
-	printf("input cmd:");
+    printf("input cmd:");
 
     gets(cmd);
 
@@ -21,7 +45,5 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-
-
 
 
