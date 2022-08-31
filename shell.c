@@ -75,10 +75,11 @@ char *strim(char *s)
 
     end = s + size - 1;
     while (end >= s && isspace(*end)){
-        //...
+        end--;
     }
+    *(end+1) = '\0';
 
-    return s;
+    return skip_spaces(s);
 }
 
 void shell_parse_cmd(const char *cmd)
