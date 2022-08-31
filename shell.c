@@ -13,12 +13,14 @@ typedef enum {
 	DT_U16,
 	DT_U32,
 	DT_STR,
-	DT_FLT
+	DT_FLT,
+    DT_ULL,
+    DT_SLL
 } emDT;
 
 #define typename(x) _Generic(x, int : DT_S32,\
-	short : DT_S16,\
-	char  : DT_S08,\
+    short : DT_S16,\
+    char  : DT_S08,\
 	unsigned int : DT_U32,\
 	unsigned short: DT_U16,\
 	unsigned char : DT_U08,\
