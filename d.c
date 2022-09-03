@@ -273,7 +273,7 @@ int main()
 
     printf("a = %d = %08x, &a = %p = %p\n", a, a, &a, p);
 
-    printf("call d &a, 16, 8: ");
+    printf("call d(&a, 32, 1):\n");
 
     d((void*)p, 32, 1);
 
