@@ -263,7 +263,7 @@ void d(FAST void *adrs, int nunits, int width)
         printf("%*s ", 2*width, " ");
     }
 
-    printf(" *%16s*\n", ascii);  /* print oiut ascii format values */
+    printf(" *%16s*\n", ascii);  /* print out ascii format values */
 }
 
 int main()
