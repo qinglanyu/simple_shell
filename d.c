@@ -4,7 +4,8 @@
  * d - display memory
  */
 
-#include <stdio.h>
+// #include <stdio.h>
+#include "printf.h"
 #include <string.h>
 
 #define _C_UPPER        0x1
@@ -263,23 +264,33 @@ void d(FAST void *adrs, int nunits, int width)
         printf("%*s ", 2*width, " ");
     }
 
-    printf(" *%16s*\n", ascii);  /* print out ascii format values */
+    printf("  *%16s*\n", ascii);  /* print out ascii format values */
 }
 
 int main()
 {
     int a = 123;
     int *p = &a;
+	char *china = "I love china";
 
     printf("a = %d = %08x, &a = %p = %p\n", a, a, &a, p);
 
-    printf("call d(&a, 32, 1):\n");
+    printf("call d(&a, 0, 0):\n");
+
+	printf("%s pi=%f %d=0%o=0x%x at='%c' @\"%s\"\n", __FUNCTION__, 3.1415926, 1024, 1024, 1024, '@', __DATE__);
 
     d((void*)p, 32, 1);
+
+	d((void*)china, 32, 1);
 
     return 0;
 }
 
+/*#include <stdio.h>*/
+void _putchar(char character)
+{
+	putchar(character);
+}
 
 
 
