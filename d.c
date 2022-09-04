@@ -255,7 +255,7 @@ void d(FAST void *adrs, int nunits, int width)
             pByte++;
         }
 
-        last_adrs = (void *)((int) last_adrs + width);
+        last_adrs = (void *)((long long) last_adrs + width);
         item++;
     }
 
