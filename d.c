@@ -271,17 +271,19 @@ int main()
 {
     int a = 123;
     int *p = &a;
-	char *china = "I love china";
-
+    char *china = "I love china";
+    
     printf("a = %d = %08x, &a = %p = %p\n", a, a, &a, p);
 
     printf("call d(&a, 0, 0):\n");
+    
+    printf("%s pi=%f %d=0%o=0x%x at='%c' @\"%s\"\n", __FUNCTION__, 3.1415926, 1024, 1024, 1024, '@', __DATE__);
 
-	printf("%s pi=%f %d=0%o=0x%x at='%c' @\"%s\"\n", __FUNCTION__, 3.1415926, 1024, 1024, 1024, '@', __DATE__);
+    printf("输出中文怎么样呢？再使用cgdb去调试呢？\n");
 
     d((void*)p, 32, 1);
 
-	d((void*)china, 32, 1);
+    d((void*)china, 32, 1);
 
     return 0;
 }
