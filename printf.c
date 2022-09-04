@@ -577,7 +577,7 @@ int _evaluate_flags(const char** format)
  {
     unsigned int flags = 0U, n;
     do {
-		switch (**format) {
+        switch (**format) {
         case '0':
             flags |= FLAGS_ZEROPAD;
             (*format)++;
@@ -585,22 +585,22 @@ int _evaluate_flags(const char** format)
             break;
         case '-':
             flags |= FLAGS_LEFT;
-			(*format)++;
+            (*format)++;
             n = 1U;
             break;
         case '+':
             flags |= FLAGS_PLUS;
-			(*format)++;
+            (*format)++;
             n = 1U;
             break;
         case ' ':
             flags |= FLAGS_SPACE;
-			(*format)++;
+            (*format)++;
             n = 1U;
             break;
         case '#':
             flags |= FLAGS_HASH;
-			(*format)++;
+            (*format)++;
             n = 1U;
             break;
         default:
@@ -614,39 +614,39 @@ int _evaluate_flags(const char** format)
 // internal evaluate_length
 void _evaluate_length(const char **format, unsigned int *flags)
 {
-	switch (**format) {
+    switch (**format) {
 	case 'l':
-		*flags |= FLAGS_LONG;
-		*format++;
-		if (**format == 'l') {
-			*flags |= FLAGS_LONG_LONG;
-			*format++;
-		}
-		break;
+	    *flags |= FLAGS_LONG;
+	    *format++;
+	    if (**format == 'l') {
+	    	*flags |= FLAGS_LONG_LONG;
+	    	*format++;
+	    }
+	    break;
 	case 'h':
-		*flags |= FLAGS_SHORT;
-		*format++;
-		if (**format == 'h') {
-			*flags |= FLAGS_CHAR;
-			*format++;
-		}
-		break;
+	    *flags |= FLAGS_SHORT;
+	    *format++;
+	    if (**format == 'h') {
+	    	*flags |= FLAGS_CHAR;
+	    	*format++;
+	    }
+	    break;
 #if defined(PRINTF_SUPPORT_PTRDIFF_T)
 	case 't':
-		*flags |= (sizeof(ptrdiff_t) == sizeof(long) ? FLAGS_LONG : FLAGS_LONG_LONG);
-		*format++;
-		break;
+	    *flags |= (sizeof(ptrdiff_t) == sizeof(long) ? FLAGS_LONG : FLAGS_LONG_LONG);
+	    *format++;
+	    break;
 #endif
 	case 'j':
-		*flags |= (sizeof(intmax_t) == sizeof(long) ? FLAGS_LONG : FLAGS_LONG_LONG);
-		*format++;
-		break;
+	    *flags |= (sizeof(intmax_t) == sizeof(long) ? FLAGS_LONG : FLAGS_LONG_LONG);
+	    *format++;
+	    break;
 	case 'z':
-		*flags |= (sizeof(size_t) == sizeof(long) ? FLAGS_LONG : FLAGS_LONG_LONG);
-		*format++;
-		break;
+	    *flags |= (sizeof(size_t) == sizeof(long) ? FLAGS_LONG : FLAGS_LONG_LONG);
+	    *format++;
+	    break;
 	default:
-		break;
+	    break;
 	}
 }
 
@@ -671,11 +671,11 @@ static int _vsnprintf(out_fct_type out, char* buffer, const size_t maxlen, const
             continue;
         }
 
-		// yes, evaluate it
-		format++;
+        // yes, evaluate it
+        format++;
 
         // evaluate flags field
-		flags = _evaluate_flags(&format);
+        flags = _evaluate_flags(&format);
 
         // evaluate width field
         width = 0U;
@@ -710,7 +710,7 @@ static int _vsnprintf(out_fct_type out, char* buffer, const size_t maxlen, const
         }
 
         // evaluate length field
-		_evaluate_length(&format, &flags);
+        _evaluate_length(&format, &flags);
 
         // evaluate specifier
         switch (*format) {

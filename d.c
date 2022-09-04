@@ -276,8 +276,8 @@ int main()
     printf("a = %d = %08x, &a = %p = %p\n", a, a, &a, p);
 
     printf("call d(&a, 0, 0):\n");
-    
-	printf("%s pi=%20.15f %d=%#o=%#x at='%c' @\"%s\"\n", __FUNCTION__, 3.141592653589793238462643383279, 1024, 1024, 1024, '@', __DATE__);
+
+    printf("%s pi=%20.15f %d=%#o=%#x at='%c' @\"%s\"\n", __FUNCTION__, 3.141592653589793238462643383279, 1024, 1024, 1024, '@', __DATE__);
 
     printf("输出中文怎么样呢？再使用cgdb去调试呢？\n");
 
@@ -291,7 +291,7 @@ int main()
 /*#include <stdio.h>*/
 void _putchar(char character)
 {
-	putchar(character);
+    putchar(character);
 }
 
 
